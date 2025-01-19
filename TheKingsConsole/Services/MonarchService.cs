@@ -5,12 +5,11 @@ namespace TheKingsConsole.Services;
 
 public class MonarchService
 {
-    private static readonly string Url = "";
+    private static readonly string Url = "Data/sample.json";
 
     public async Task<List<Monarch>> FetchMonarchData()
     {
-        using HttpClient client = new();
-        var response = await client.GetStringAsync(Url);
+        var response = await File.ReadAllTextAsync(Url);
 
         return JsonConvert.DeserializeObject<List<Monarch>>(response) ?? new List<Monarch>();
     }
