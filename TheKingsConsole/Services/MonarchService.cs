@@ -47,6 +47,13 @@ public class MonarchService
         Console.WriteLine($"4. Most common first name: {mostCommonFirstName?.Key}");
     }
 
+    public void PrintCurrentMonarch(IEnumerable<Monarch> monarchs)
+    {
+        var currentMonarch = monarchs.OrderByDescending(m => GetRulingYears(m.Years)).FirstOrDefault();
+
+        Console.WriteLine($"5. Current monarch: {currentMonarch?.Name} ({currentMonarch?.Years})");
+    }
+
     private int GetRulingYears(string? years)
     {
         if (string.IsNullOrWhiteSpace(years))

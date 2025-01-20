@@ -22,6 +22,7 @@ public class Program
             service.PrintLongestRulingMonarch(monarchs);
             service.PrintLongestRulingHouse(monarchs);
             service.PrintMostCommonFirstName(monarchs);
+            service.PrintCurrentMonarch(monarchs);
         }
         catch (Exception ex)
         {
